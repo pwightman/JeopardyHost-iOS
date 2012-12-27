@@ -113,6 +113,7 @@ typedef NS_ENUM(NSInteger, JPNetworkProtocol) {
 	NSString *file = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
 	NSArray *splitFile = [file componentsSeparatedByString:@"\n"];
 	[self sendString:[NSString stringWithFormat:@"%d\n%d\n%d\n", JPNetworkProtocolFileInfo, round, splitFile.count]];
+	
 	for (NSString *line in splitFile) {
 		[self sendString:[line stringByAppendingString:@"\n"]];
 	}
@@ -232,6 +233,16 @@ typedef NS_ENUM(NSInteger, JPNetworkProtocol) {
 	return objs;
 }
 
+/*
+ 10
+ Alex
+ 
+ 13
+ 3
+ 
+ 12
+ */
+
 #pragma AsyncSocketDelegate
 
 - (void) onSocket:(AsyncSocket *)sock didConnectToHost:(NSString *)host port:(UInt16)port {
@@ -260,10 +271,11 @@ typedef NS_ENUM(NSInteger, JPNetworkProtocol) {
 		}
 	}];
 	
-	NSInteger currentCount = newFilteredData.count;
 	NSInteger newCount = 0;
+	NSInteger currentCount = newFilteredData.count;
 	
 	do {
+		currentCount = newFilteredData.count;
 		self.data = newFilteredData = [[self attemptParse:newFilteredData] mutableCopy];
 		newCount = newFilteredData.count;
 	} while (currentCount != newCount && newCount != 0);

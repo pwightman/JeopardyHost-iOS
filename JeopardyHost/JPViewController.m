@@ -25,11 +25,6 @@ typedef NS_ENUM(NSInteger, JPState) {
 	JPStateWaitingForDailyDoubleAnswer
 };
 
-typedef NS_ENUM(NSInteger, JPRound) {
-	JPRoundOne = 1,
-	JPRoundTwo = 2
-};
-
 @interface JPViewController ()
 
 @property (strong, nonatomic) IBOutlet UIButton *loadGameButton;
@@ -54,7 +49,6 @@ typedef NS_ENUM(NSInteger, JPRound) {
 @property (strong, nonatomic) NSArray *scores;
 @property (strong, nonatomic) NSArray *names;
 @property (assign, nonatomic) JPState state;
-@property (assign, nonatomic) JPRound round;
 
 @end
 
@@ -71,8 +65,7 @@ typedef NS_ENUM(NSInteger, JPRound) {
 	[self setupGridViewBlocks];
 	_scores = @[];
 	_names = @[];
-	[self transitionTo:JPStatePreGame];
-	_round = JPRoundOne;
+	[self transitionTo:JPStateDisconnected];
 }
 
 - (void) transitionTo:(JPState)state {
@@ -137,6 +130,7 @@ typedef NS_ENUM(NSInteger, JPRound) {
 	BlockSelf
 	_networkManager.didConnect = ^{
 		_connectedLabel.text = @"Connected!";
+		[blockSelf transitionTo:JPStatePreGame];
 	};
 	
 	_networkManager.didReceiveScoreUpdate = ^(NSArray *names, NSArray *scores) {
@@ -212,6 +206,7 @@ typedef NS_ENUM(NSInteger, JPRound) {
 	questionLabel.minimumScaleFactor = 0.3;
 	questionLabel.adjustsFontSizeToFitWidth = YES;
 	questionLabel.text = text;
+	questionLabel.textAlignment = NSTextAlignmentCenter;
 	questionLabel.frame = CGRectInset(_questionView.bounds, 10, 10);
 	[_questionView addSubview:questionLabel];
 	[self.view addSubview:_questionView];
@@ -243,11 +238,11 @@ typedef NS_ENUM(NSInteger, JPRound) {
 		[alertView textFieldAtIndex:0].keyboardType = UIKeyboardTypeNumbersAndPunctuation;
 		
 		[alertView addButtonWithTitle:@"Cancel" block:^{
-			[blockAlertView dismissWithClickedButtonIndex:0 animated:YES];
 		}];
 		
 		[alertView addButtonWithTitle:@"Change" block:^{
-			[blockSelf.networkManager sendScoreChange:name amount:[blockAlertView textFieldAtIndex:0].text];
+			[blockSelf.networkManager sendScoreChange:name
+											   amount:[blockAlertView textFieldAtIndex:0].text];
 		}];
 		
 		[alertView show];
@@ -258,9 +253,11 @@ typedef NS_ENUM(NSInteger, JPRound) {
 - (void) setupGridViewBlocks {
 	BlockSelf
 	_gridView.didSelectCell = ^(NSInteger col, NSInteger row) {
+		// You need to adjust for the headers
+		row += 1;
 		if ([[[blockSelf.board objectAtIndex:col] objectAtIndex:row] isEqualToString:@""]) return;
-		[blockSelf.networkManager sendQuestionChosenAtColumn:col row:row];
-		[[blockSelf.board objectAtIndex:col] setObject:@"" atIndex:row + 1];
+		[blockSelf.networkManager sendQuestionChosenAtColumn:col row:row - 1];
+		[[blockSelf.board objectAtIndex:col] setObject:@"" atIndex:row];
 		[blockSelf.gridView reloadData];
 	};
 	
@@ -280,10 +277,17 @@ typedef NS_ENUM(NSInteger, JPRound) {
 		JPGameListViewController *controller = (JPGameListViewController *)segue.destinationViewController;
 		
 		controller.didSelectBoard = ^(NSString *path){
-			[_networkManager sendFileInfo:path round:_round];
+			PSPDFAlertView *alertView = [[PSPDFAlertView alloc] initWithTitle:@"Round" message:@"What round is this?"];
+			[alertView addButtonWithTitle:@"Round 1" block:^{
+				[_networkManager sendFileInfo:path round:1];
+			}];
+			
+			[alertView addButtonWithTitle:@"Round 2" block:^{
+				[_networkManager sendFileInfo:path round:2];
+			}];
+			
+			[alertView show];
 			[[(UIStoryboardPopoverSegue *)segue popoverController] dismissPopoverAnimated:YES];
-			[_loadButton setTitle:@"Load Round 2" forState:UIControlStateNormal];
-			_round = JPRoundTwo;
 		};
 		
 	}
@@ -336,6 +340,10 @@ typedef NS_ENUM(NSInteger, JPRound) {
 			[self presentNetworkConnectDialog];
 		}];
 		
+		[actionSheet addButtonWithTitle:@"Cancel" block:^{
+			
+		}];
+		
 		[actionSheet showInView:_connectButton];
 	} else {
 		[self presentNetworkConnectDialog];
@@ -349,10 +357,7 @@ typedef NS_ENUM(NSInteger, JPRound) {
 	
 	PSPDFAlertView *alertView = [[PSPDFAlertView alloc] initWithTitle:@"IP Address" message:@"What IP Address should I connect to?"];
 	
-	__block __weak typeof(alertView) blockAlertView;
-	
 	[alertView addButtonWithTitle:@"Cancel" block:^{
-		[blockAlertView dismissWithClickedButtonIndex:0 animated:YES];
 	}];
 	
 	[alertView addButtonWithTitle:@"Connect" block:^{
