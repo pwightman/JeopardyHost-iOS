@@ -6,8 +6,8 @@
 //  Copyright (c) 2012 Parker Wightman Inc. All rights reserved.
 //
 
-#import <SenTestingKit/SenTestingKit.h>
+#import <XCTest/XCTest.h>
 
-@interface JeopardyHostTests : SenTestCase
+@interface JeopardyHostTests : XCTestCase
 
 @end

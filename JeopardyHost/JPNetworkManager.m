@@ -66,7 +66,7 @@ typedef NS_ENUM(NSInteger, JPNetworkProtocol) {
 		@throw error.localizedDescription;
 	}
 	
-	[self sendString:[NSString stringWithFormat:@"%d\nhost\n", JPNetworkProtocolSignIn]];
+	[self sendString:[NSString stringWithFormat:@"%@\nhost\n", @(JPNetworkProtocolSignIn)]];
 }
 
 - (void) disconnect {
@@ -84,35 +84,35 @@ typedef NS_ENUM(NSInteger, JPNetworkProtocol) {
 		@throw error.localizedDescription;
 	}
 	
-	[self sendString:[NSString stringWithFormat:@"%d\nhost\n", JPNetworkProtocolReconnect]];
+	[self sendString:[NSString stringWithFormat:@"%@\nhost\n", @(JPNetworkProtocolReconnect)]];
 }
 
 - (void) sendBeginBuzzing {
-	[self sendString:[NSString stringWithFormat:@"%d\n", JPNetworkProtocolBeginBuzzing]];
+	[self sendString:[NSString stringWithFormat:@"%@\n", @(JPNetworkProtocolBeginBuzzing)]];
 }
 
 - (void) sendDailyDoubleAnswer:(BOOL)isCorrect {
 	NSString *isCorrectString = (isCorrect ? @"correct" : @"incorrect");
-	[self sendString:[NSString stringWithFormat:@"%d\n%@\n", JPNetworkProtocolDailyDouble, isCorrectString]];
+	[self sendString:[NSString stringWithFormat:@"%@\n%@\n", @(JPNetworkProtocolDailyDouble), isCorrectString]];
 }
 
 - (void) sendDisplayDailyDouble {
-	[self sendString:[NSString stringWithFormat:@"%d\n", JPNetworkProtocolDisplayDailyDouble]];
+	[self sendString:[NSString stringWithFormat:@"%@\n", @(JPNetworkProtocolDisplayDailyDouble)]];
 }
 
 - (void) sendAnswer:(BOOL)isCorrect {
 	NSString *correctString = (isCorrect ? @"correct" : @"incorrect");
-	[self sendString:[NSString stringWithFormat:@"%d\n%@\n", JPNetworkProtocolAnswered, correctString]];
+	[self sendString:[NSString stringWithFormat:@"%@\n%@\n", @(JPNetworkProtocolAnswered), correctString]];
 }
 
 - (void) sendQuestionChosenAtColumn:(NSInteger)col row:(NSInteger)row {
-	[self sendString:[NSString stringWithFormat:@"%d\n%d\n%d\n", JPNetworkProtocolChooseQuestion, col, row]];
+	[self sendString:[NSString stringWithFormat:@"%@\n%@\n%@\n", @(JPNetworkProtocolChooseQuestion), @(col), @(row)]];
 }
 
 - (void) sendFileInfo:(NSString *)path round:(NSInteger)round {
 	NSString *file = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
 	NSArray *splitFile = [file componentsSeparatedByString:@"\n"];
-	[self sendString:[NSString stringWithFormat:@"%d\n%d\n%d\n", JPNetworkProtocolFileInfo, round, splitFile.count]];
+	[self sendString:[NSString stringWithFormat:@"%@\n%@\n%@\n", @(JPNetworkProtocolFileInfo), @(round), @(splitFile.count)]];
 	
 	for (NSString *line in splitFile) {
 		[self sendString:[line stringByAppendingString:@"\n"]];
@@ -120,15 +120,15 @@ typedef NS_ENUM(NSInteger, JPNetworkProtocol) {
 }
 
 - (void) sendScoreChange:(NSString *)name amount:(NSString *)amount {
-	[self sendString:[NSString stringWithFormat:@"%d\n%@\n%@\n", JPNetworkProtocolChangeScore, name, amount]];
+	[self sendString:[NSString stringWithFormat:@"%@\n%@\n%@\n", @(JPNetworkProtocolChangeScore), name, amount]];
 }
 
 - (void) sendThinking {
-	[self sendString:[NSString stringWithFormat:@"%d\n", JPNetworkProtocolThinking]];
+	[self sendString:[NSString stringWithFormat:@"%@\n", @(JPNetworkProtocolThinking)]];
 }
 
 - (void) sendReadyNext {
-	[self sendString:[NSString stringWithFormat:@"%d\n", JPNetworkProtocolReadyNext]];
+	[self sendString:[NSString stringWithFormat:@"%@\n", @(JPNetworkProtocolReadyNext)]];
 }
 
 - (void) sendString:(NSString *)string {

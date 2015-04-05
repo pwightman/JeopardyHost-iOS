@@ -19,7 +19,6 @@
 		5F3B3776168389010009ACA8 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F3B3774168389010009ACA8 /* MainStoryboard_iPhone.storyboard */; };
 		5F3B3779168389010009ACA8 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F3B3777168389010009ACA8 /* MainStoryboard_iPad.storyboard */; };
 		5F3B377C168389010009ACA8 /* JPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F3B377B168389010009ACA8 /* JPViewController.m */; };
-		5F3B3784168389010009ACA8 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F3B3783168389010009ACA8 /* SenTestingKit.framework */; };
 		5F3B3785168389010009ACA8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F3B375C168388FF0009ACA8 /* UIKit.framework */; };
 		5F3B3786168389010009ACA8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F3B375E168388FF0009ACA8 /* Foundation.framework */; };
 		5F3B378E168389010009ACA8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5F3B378C168389010009ACA8 /* InfoPlist.strings */; };
@@ -27,12 +26,8 @@
 		5F3B37E61684D60F0009ACA8 /* JPGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F3B37E51684D60F0009ACA8 /* JPGridView.m */; };
 		5F3B37E91684D61D0009ACA8 /* JPGridCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F3B37E81684D61D0009ACA8 /* JPGridCell.m */; };
 		5F3B37FF1684D7410009ACA8 /* JPNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F3B37FE1684D7410009ACA8 /* JPNetworkManager.m */; };
-		5F3B38091684F0BE0009ACA8 /* christmasDouble.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5F3B38071684F0BE0009ACA8 /* christmasDouble.txt */; };
-		5F3B380A1684F0BE0009ACA8 /* christmasSingle.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5F3B38081684F0BE0009ACA8 /* christmasSingle.txt */; };
 		5F3B380D1684F10E0009ACA8 /* Games.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5F3B380C1684F10E0009ACA8 /* Games.plist */; };
 		5F9D21241687E84D0013422C /* JPGameListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F9D21231687E84D0013422C /* JPGameListViewController.m */; };
-		5F9D2128168819FF0013422C /* connieDouble.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5F9D2126168819FF0013422C /* connieDouble.txt */; };
-		5F9D2129168819FF0013422C /* connieSingle.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5F9D2127168819FF0013422C /* connieSingle.txt */; };
 		83A54E1811D346E7B78507A8 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FA002DA0369C4127BB8C64C5 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1191832DEDE922E22972430C /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		5F3B3758168388FF0009ACA8 /* JeopardyHost.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JeopardyHost.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F3B375C168388FF0009ACA8 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5F3B375E168388FF0009ACA8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -65,7 +61,6 @@
 		5F3B377A168389010009ACA8 /* JPViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JPViewController.h; sourceTree = "<group>"; };
 		5F3B377B168389010009ACA8 /* JPViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JPViewController.m; sourceTree = "<group>"; };
 		5F3B3782168389010009ACA8 /* JeopardyHostTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JeopardyHostTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
-		5F3B3783168389010009ACA8 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		5F3B378B168389010009ACA8 /* JeopardyHostTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "JeopardyHostTests-Info.plist"; sourceTree = "<group>"; };
 		5F3B378D168389010009ACA8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		5F3B378F168389010009ACA8 /* JeopardyHostTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JeopardyHostTests.h; sourceTree = "<group>"; };
@@ -76,14 +71,10 @@
 		5F3B37E81684D61D0009ACA8 /* JPGridCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPGridCell.m; sourceTree = "<group>"; };
 		5F3B37FD1684D7410009ACA8 /* JPNetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPNetworkManager.h; sourceTree = "<group>"; };
 		5F3B37FE1684D7410009ACA8 /* JPNetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPNetworkManager.m; sourceTree = "<group>"; };
-		5F3B38071684F0BE0009ACA8 /* christmasDouble.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = christmasDouble.txt; sourceTree = "<group>"; };
-		5F3B38081684F0BE0009ACA8 /* christmasSingle.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = christmasSingle.txt; sourceTree = "<group>"; };
 		5F3B380C1684F10E0009ACA8 /* Games.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Games.plist; sourceTree = "<group>"; };
 		5F9D21221687E84D0013422C /* JPGameListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPGameListViewController.h; sourceTree = "<group>"; };
 		5F9D21231687E84D0013422C /* JPGameListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPGameListViewController.m; sourceTree = "<group>"; };
-		5F9D2126168819FF0013422C /* connieDouble.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = connieDouble.txt; sourceTree = "<group>"; };
-		5F9D2127168819FF0013422C /* connieSingle.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = connieSingle.txt; sourceTree = "<group>"; };
-		8C100CCB9E8D4AE39DEA7A29 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
+		F1BDD69FDFD2002D70750941 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		FA002DA0369C4127BB8C64C5 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -103,7 +94,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5F3B3784168389010009ACA8 /* SenTestingKit.framework in Frameworks */,
 				5F3B3785168389010009ACA8 /* UIKit.framework in Frameworks */,
 				5F3B3786168389010009ACA8 /* Foundation.framework in Frameworks */,
 			);
@@ -119,7 +109,7 @@
 				5F3B3789168389010009ACA8 /* JeopardyHostTests */,
 				5F3B375B168388FF0009ACA8 /* Frameworks */,
 				5F3B3759168388FF0009ACA8 /* Products */,
-				8C100CCB9E8D4AE39DEA7A29 /* Pods.xcconfig */,
+				998B716F9C817E5D75C8F145 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -138,7 +128,6 @@
 				5F3B375C168388FF0009ACA8 /* UIKit.framework */,
 				5F3B375E168388FF0009ACA8 /* Foundation.framework */,
 				5F3B3760168388FF0009ACA8 /* CoreGraphics.framework */,
-				5F3B3783168389010009ACA8 /* SenTestingKit.framework */,
 				FA002DA0369C4127BB8C64C5 /* libPods.a */,
 			);
 			name = Frameworks;
@@ -211,13 +200,18 @@
 		5F3B380B1684F0C40009ACA8 /* Board */ = {
 			isa = PBXGroup;
 			children = (
-				5F9D2126168819FF0013422C /* connieDouble.txt */,
-				5F9D2127168819FF0013422C /* connieSingle.txt */,
-				5F3B38071684F0BE0009ACA8 /* christmasDouble.txt */,
-				5F3B38081684F0BE0009ACA8 /* christmasSingle.txt */,
 				5F3B380C1684F10E0009ACA8 /* Games.plist */,
 			);
 			name = Board;
+			sourceTree = "<group>";
+		};
+		998B716F9C817E5D75C8F145 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F1BDD69FDFD2002D70750941 /* Pods.debug.xcconfig */,
+				1191832DEDE922E22972430C /* Pods.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,7 +252,7 @@
 			name = JeopardyHostTests;
 			productName = JeopardyHostTests;
 			productReference = 5F3B3782168389010009ACA8 /* JeopardyHostTests.octest */;
-			productType = "com.apple.product-type.bundle";
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -267,6 +261,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = JP;
+				LastTestingUpgradeCheck = 0630;
 				LastUpgradeCheck = 0450;
 				ORGANIZATIONNAME = "Parker Wightman Inc.";
 			};
@@ -299,11 +294,7 @@
 				5F3B3773168389010009ACA8 /* Default-568h@2x.png in Resources */,
 				5F3B3776168389010009ACA8 /* MainStoryboard_iPhone.storyboard in Resources */,
 				5F3B3779168389010009ACA8 /* MainStoryboard_iPad.storyboard in Resources */,
-				5F3B38091684F0BE0009ACA8 /* christmasDouble.txt in Resources */,
-				5F3B380A1684F0BE0009ACA8 /* christmasSingle.txt in Resources */,
 				5F3B380D1684F10E0009ACA8 /* Games.plist in Resources */,
-				5F9D2128168819FF0013422C /* connieDouble.txt in Resources */,
-				5F9D2129168819FF0013422C /* connieSingle.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -343,7 +334,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -470,7 +461,7 @@
 		};
 		5F3B3795168389020009ACA8 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8C100CCB9E8D4AE39DEA7A29 /* Pods.xcconfig */;
+			baseConfigurationReference = F1BDD69FDFD2002D70750941 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "JeopardyHost/JeopardyHost-Prefix.pch";
@@ -482,7 +473,7 @@
 		};
 		5F3B3796168389020009ACA8 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8C100CCB9E8D4AE39DEA7A29 /* Pods.xcconfig */;
+			baseConfigurationReference = 1191832DEDE922E22972430C /* Pods.release.xcconfig */;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "JeopardyHost/JeopardyHost-Prefix.pch";
@@ -499,13 +490,13 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+					"$(inherited)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "JeopardyHost/JeopardyHost-Prefix.pch";
 				INFOPLIST_FILE = "JeopardyHostTests/JeopardyHostTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = octest;
 			};
 			name = Debug;
 		};
@@ -516,13 +507,13 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+					"$(inherited)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "JeopardyHost/JeopardyHost-Prefix.pch";
 				INFOPLIST_FILE = "JeopardyHostTests/JeopardyHostTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = octest;
 			};
 			name = Release;
 		};

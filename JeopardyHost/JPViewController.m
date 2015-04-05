@@ -129,7 +129,7 @@ typedef NS_ENUM(NSInteger, JPState) {
 - (void) setupNetworkBlocks {
 	BlockSelf
 	_networkManager.didConnect = ^{
-		_connectedLabel.text = @"Connected!";
+		blockSelf.connectedLabel.text = @"Connected!";
 		[blockSelf transitionTo:JPStatePreGame];
 	};
 	
@@ -140,7 +140,7 @@ typedef NS_ENUM(NSInteger, JPState) {
 	};
 	
 	_networkManager.didDisconnect = ^{
-		_connectedLabel.text = @"Disconnected! Try reconnecting";
+		blockSelf.connectedLabel.text = @"Disconnected! Try reconnecting";
 		[blockSelf transitionTo:JPStateDisconnected];
 	};
 	
@@ -151,7 +151,7 @@ typedef NS_ENUM(NSInteger, JPState) {
 	};
 	
 	_networkManager.didChooseQuestion = ^(NSString *question, NSString *answer) {
-		_answerLabel.text = answer;
+		blockSelf.answerLabel.text = answer;
 		[blockSelf transitionTo:JPStatePosingQuestion];
 		[blockSelf showQuestionWithText:question];
 	};
@@ -172,7 +172,7 @@ typedef NS_ENUM(NSInteger, JPState) {
 	
 	_networkManager.didReceiveDailyDouble = ^(NSString *question, NSString *answer) {
 		[blockSelf showQuestionWithText:question];
-		_answerLabel.text = answer;
+		blockSelf.answerLabel.text = answer;
 		[blockSelf transitionTo:JPStateWaitingForDailyDoubleAnswer];
 	};
 }
@@ -220,13 +220,13 @@ typedef NS_ENUM(NSInteger, JPState) {
 - (void) setupTableViewBlocks {
 	BlockSelf
 	[_playerTableView setNumberOfRowsInSectionBlock:^NSInteger(UITableView *tableView, NSInteger section) {
-		return _names.count;
+		return blockSelf.names.count;
 	}];
 	
 	[_playerTableView setCellForRowAtIndexPathBlock:^UITableViewCell *(UITableView *tableView, NSIndexPath *indexPath) {
 		UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
-		cell.textLabel.text = [_names objectAtIndex:indexPath.row];
-		cell.detailTextLabel.text = [_scores objectAtIndex:indexPath.row];
+		cell.textLabel.text = [blockSelf.names objectAtIndex:indexPath.row];
+		cell.detailTextLabel.text = [blockSelf.scores objectAtIndex:indexPath.row];
 		return cell;
 	}];
 	
@@ -354,7 +354,7 @@ typedef NS_ENUM(NSInteger, JPState) {
 	if (_networkManager) [_networkManager disconnect];
 	
 	_networkManager = [[JPNetworkManager alloc] init];
-	
+
 	PSPDFAlertView *alertView = [[PSPDFAlertView alloc] initWithTitle:@"IP Address" message:@"What IP Address should I connect to?"];
 	
 	[alertView addButtonWithTitle:@"Cancel" block:^{
